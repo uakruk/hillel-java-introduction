@@ -72,9 +72,9 @@ public class Main {
         // Try to predict the result of the expression before running the program
         boolean a = true;
         boolean b = false;
-        if (a) System.out.println("Right!");
+        if (a) System.out.println("Right");
         else
-         System.out.println ("Don't Right!");
+         System.out.println ("Don't Right");
         // here your code
 
         // 3. Try to understand accelerated computation of boolean expressions:
@@ -95,12 +95,7 @@ public class Main {
         // perform it for different operations: ^ && || !. Try to change the order of calling these methods (like System.out.println(getSecond() || getFirst());
 
 
-        // 4. Convert the character to the short
-        // perform bitwise operations with the short number you've just got with the following numbers: 0xFFFF, 0b00000001
-        // &
-        // ^
-        // |
-        // ~ (it doesn't require the second number)
+
 
         int g1 = 212;
          System.out.println(Integer.toBinaryString(g1));/*
@@ -118,11 +113,65 @@ public class Main {
         // >>>
         // <<
 
+        // 4. Convert the character to the short
+        // perform bitwise operations with the short number you've just got with the following numbers: 0xFFFF, 0b00000001
+        // &
+        // ^
+        // |
+        // ~ (it doesn't require the second number)
+        char u = 'B';
+        short y = (short) u;
+        System.out.println(y);
+        int intOne = 0xFFFF;
+        int intTwo = 0b00000001;
+        System.out.println(intOne);
+        System.out.println(intTwo);
+
+        int binary1 = y & intOne;
+        int binary2  = y & intTwo;
+        System.out.println("Code1: " + (y & intOne));
+        System.out.println("Code2: " + (y & intTwo));
+        System.out.println(Integer.toBinaryString(binary1));
+        System.out.println(Integer.toBinaryString(binary2));
+
+        int binary3 = y ^ intOne;
+        int binary4  = y ^ intTwo;
+        System.out.println("Code3: " + (y ^ intOne));
+        System.out.println("Code4: " + (y ^ intTwo));
+        System.out.println(Integer.toBinaryString(binary3));
+        System.out.println(Integer.toBinaryString(binary4));
+
+        int binary5 = y | intOne;
+        int binary6  = y | intTwo;
+        System.out.println("Code5: " + (y | intOne));
+        System.out.println("Code6: " + (y | intTwo));
+        System.out.println(Integer.toBinaryString(binary5));
+        System.out.println(Integer.toBinaryString(binary6));
+
+        System.out.println(" Inverter: " + ~(y));
+        int binary7 = ~(y);
+        System.out.println(Integer.toBinaryString(binary7));
+
+
+        int newBinary1 = 10;
+        System.out.println(newBinary1);
+
+        newBinary1 = (int) (newBinary1<<2);
+        System.out.println(newBinary1);
+
+        byte newBinaryByte = 5;
+        System.out.println(newBinaryByte);
+
+        newBinaryByte = (byte)(newBinaryByte>>1);
+        System.out.println(newBinaryByte);
+
         // 6*. Try to get the 512 from the 1 without any multiplications, using any libraries or adding any numbers.
 
-        int one = 0x01;
+        int result1 = 0x01 << 9;
 
-        System.out.println(one * 512);
+        System.out.println("Operation Byte 1 move left two symbol: " + result1 );
+
+
 
     }
 
