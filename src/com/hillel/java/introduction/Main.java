@@ -72,9 +72,9 @@ public class Main {
         // Try to predict the result of the expression before running the program
         boolean a = true;
         boolean b = false;
-        if (a) System.out.println("Right!");
+        if (a) System.out.println("Right");
         else
-         System.out.println ("Don't Right!");
+         System.out.println ("Don't Right");
         // here your code
 
         // 3. Try to understand accelerated computation of boolean expressions:
