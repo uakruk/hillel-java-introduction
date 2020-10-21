@@ -25,6 +25,9 @@ public class HomeAssignment {
             int[] originalImageData = image.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
 
             System.out.println("Image rgb values = " + originalImageData.length);
+            System.out.println("imageHeight"+imageHeight);
+            System.out.println("imageWidth" + imageWidth);
+            System.out.println(originalImageData);
 
             int[] newImageData = new int[originalImageData.length];
 
@@ -53,6 +56,9 @@ public class HomeAssignment {
             // 8. See the result.jpg inside the project folder. It should look like the original images but with "wrong" colors.
 
             // here is your code.
+//            for (int i =0; i<originalImageData.length; i++) {
+//
+//            }
 
             // -------------------------
 
