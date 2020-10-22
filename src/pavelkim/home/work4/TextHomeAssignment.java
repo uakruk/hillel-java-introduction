@@ -28,10 +28,8 @@ public class TextHomeAssignment {
         int from = 0;
         int count = 0;
         while (text.indexOf("?", from) != -1) {
-            if (text.indexOf("?", from) != -1) {
                 count ++;
                 from = text.indexOf("?", from) + 1;
-            }
         }
         System.out.println("count : " + count);
         // 2. Edit the given text according to the following rules:
@@ -40,29 +38,24 @@ public class TextHomeAssignment {
         //  * Replace all "for example" with "for INSTANCE" in the text.
         //
         int indexForm = 0;
-        int paragraphs = 1;
-        while (text.indexOf("\n" + "\n", indexForm) != -1) {
-            if (text.indexOf("\n" + "\n", indexForm) != -1) {
-                paragraphs ++;
-                indexForm = text.indexOf("\n" + "\n", indexForm) +1;
-            }
-        }
+//        int paragraphs = 1;
+//        while (text.indexOf("\n" + "\n", indexForm) != -1) {
+//                paragraphs ++;
+//                indexForm = text.indexOf("\n" + "\n", indexForm) +1;
+//        }
 
         int fromIndex = 0;
         String newText = "";
+        int paragraphs = countParagraphsNumber(text,"\n" + "\n");
+
         String [] myArray = new String[paragraphs];
         for (int i = 0; i<paragraphs; i++) {
             if(text.indexOf("\n" + "\n", fromIndex)!=-1) {
             myArray[i] = "\t" + text.substring(fromIndex, text.indexOf("\n" + "\n", fromIndex));
-                myArray[i] = myArray[i].
-                        replace(".", ". \n").
-                        replace("?", "? \n");
+                myArray[i] = addLineBreakAfterDotAndQuestionMark(myArray[i]);
             fromIndex = text.indexOf("\n" + "\n", fromIndex)+2;
             } else {
-                myArray[i] = "\t" + text.
-                        substring(fromIndex, text.length()).
-                        replace(".", ". \n").
-                        replace("?", "? \n");
+                myArray[i] = addLineBreakAfterDotAndQuestionMark("\t" + text.substring(fromIndex, text.length()));
             }
             newText = newText + myArray[i];
         }
@@ -78,4 +71,17 @@ public class TextHomeAssignment {
         //       and only after that extract the substring (sentence) from the paragraph.
         // One more important note: the .indexOf() mehtod returns the '-1' if no substring was found in the text.
     }
+    public static int countParagraphsNumber(String text, String paragraphBorder) {
+        int indexFrom = 0;
+        int counter = 1;
+        while (text.indexOf(paragraphBorder, indexFrom) != -1) {
+            counter++;
+            indexFrom = text.indexOf(paragraphBorder, indexFrom) +1;
+        }
+        return counter;
+    }
+    public static String addLineBreakAfterDotAndQuestionMark(String text) {
+        return text.replace(".", ". \n").replace("?", "? \n");
+    }
 }
+
