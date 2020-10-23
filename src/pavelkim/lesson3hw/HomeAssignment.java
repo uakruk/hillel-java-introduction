@@ -61,18 +61,22 @@ public class HomeAssignment {
                 int green = (originalImageData[i] >> 8) & 0xFF;
                 int blue = originalImageData[i] & 0xFF;
 
-                if (i % 100 ==0 && i % imageWidth != 0) {
-                    if(i/imageWidth < imagePart) {
+                if (i % 100 == 0 && i % imageWidth != 0) {
+                    if((i/imageWidth) < imagePart) {
                         pixel = 0xFF<<16;
-                    } else if(i/imageHeight < (2*imagePart)) {
+                    } else if((i/imageWidth) < (2*imagePart)) {
                         pixel = 0xFF<<8;
 
-                    } else if(i/imageHeight < (3*imagePart)) {
+                    } else if((i/imageWidth) < (3*imagePart)) {
                         pixel = 0xFF;
                     } else {
                         pixel = 0xFFFFFF;
                     }
                 } else {
+                    red = (int)(red*0.9)&0xFF;
+                    green = (int)(green * 1.3)&0xFF;
+                    blue = blue*2&0xFF;
+
                     pixel = (red<<16) | (green<<8) | (blue);
                 }
                 newImageData[i] = pixel;
