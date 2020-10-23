@@ -39,17 +39,47 @@ public class HomeAssignment {
             // The ">>", "&", "0xFF", "<<", "|" are your best friends here.
 
 
-            // 1. create the for loop, go through the originalImageData array
-            // 2. extract red green and blue values from each pixel
-            // 3*.Make each 100th pixel white, red, blue or green (red for the first 1/4 of image, green from the next 1/4 of image, blue for the next 1/4 of image and white for the rest)
-            // For others pixels:
-            // 4. decrease RED value by 10%
-            // 4. increase GREEN value by 30%
-            // 5. double the BLUE value (multiply by 2)
+
+            for (int i = 0; i < originalImageData.length; i++) { // 1. create the for loop, go through the originalImageData array
+                int red = (originalImageData[i] >> 16) & 0xFF;
+                int green = (originalImageData[i] >> 8) & 0xFF;
+                int blue = originalImageData[i] & 0xFF; // 2. extract red green and blue values from each pixel
+
+                int newPixel = 0;
+                newImageData[i] = newPixel;
+
+                int imageParts = imageHeight / 4;
+                int pixel = 0;
+
+                if ( i % 100 == 0 && i % imageWidth != 0) { // 3*.Make each 100th pixel white, red, blue or green (red for the first 1/4 of image, green from the next 1/4 of image, blue for the next 1/4 of image and white for the rest)
+                    if (i / imageWidth < imageParts) {
+                        pixel =  0xFF << 16;
+
+                    } else if ( i / imageWidth < imageParts * 2 ){
+                        pixel =  0xFF << 8;
+                    } else if ( i / imageWidth < imageParts * 3) {
+                        pixel =  0xFF;
+                    } else {
+                        pixel = 0xFFFFFF;
+                    }
+                } else {
+                    red = ((int)(red*0.9)) & 0xFF;  // 4. decrease RED value by 10%
+                    green = ((int)(green*1.3)) & 0xFF; // 4. increase GREEN value by 30%
+                    blue = ((int)(blue*2)) & 0xFF; // 5. double the BLUE value (multiply by 2)
+                    pixel = (red << 16) | (green << 8) | blue; // 6. Create the pixel from the values you've just changed. You also need here shifting and bitwise operations.
+                }
+
+                newImageData[i] = pixel; // 7. Assign the pixel value to the corresponding pixel in the newImageData array. Use the same index as for the originalImageData. (just the "i" value inside the loop)
+            }
+
+
+
+
+
             // REMEMBER: each pixel cannot exceed value of 255, so make sure you're not exceeding these values while you're increasing it.
             // Also remember about explicit type casting, you'll probably need it there.
-            // 6. Create the pixel from the values you've just changed. You also need here shifting and bitwise operations.
-            // 7. Assign the pixel value to the corresponding pixel in the newImageData array. Use the same index as for the originalImageData. (just the "i" value inside the loop)
+
+
             // 8. See the result.jpg inside the project folder. It should look like the original images but with "wrong" colors.
 
             // here is your code.
