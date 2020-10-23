@@ -24,10 +24,7 @@ public class HomeAssignment {
 
             int[] originalImageData = image.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
 
-            System.out.println("Image rgb values = " + originalImageData.length);
-            System.out.println("imageHeight"+imageHeight);
-            System.out.println("imageWidth" + imageWidth);
-            System.out.println(originalImageData);
+            System.out.println("Image rgb values = " + originalImageData.length);   
 
             int[] newImageData = new int[originalImageData.length];
 
@@ -56,11 +53,31 @@ public class HomeAssignment {
             // 8. See the result.jpg inside the project folder. It should look like the original images but with "wrong" colors.
 
             // here is your code.
-//            for (int i =0; i<originalImageData.length; i++) {
-//
-//            }
+            for (int i = 0; i < originalImageData.length; i++) {
+                int pixel = 0;
+                int imagePart = imageHeight/4;
 
-            // -------------------------
+                int red = (originalImageData[i] >> 16) & 0xFF;
+                int green = (originalImageData[i] >> 8) & 0xFF;
+                int blue = originalImageData[i] & 0xFF;
+
+                if (i % 100 ==0 && i % imageWidth != 0) {
+                    if(i/imageWidth < imagePart) {
+                        pixel = 0xFF<<16;
+                    } else if(i/imageHeight < (2*imagePart)) {
+                        pixel = 0xFF<<8;
+
+                    } else if(i/imageHeight < (3*imagePart)) {
+                        pixel = 0xFF;
+                    } else {
+                        pixel = 0xFFFFFF;
+                    }
+                } else {
+                    pixel = (red<<16) | (green<<8) | (blue);
+                }
+                newImageData[i] = pixel;
+            }
+
 
             BufferedImage resultImage = new BufferedImage(imageWidth, imageHeight, TYPE_INT_RGB);
 
