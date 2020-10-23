@@ -65,7 +65,7 @@ public class HomeAssignment {
                 } else {
                     red = ((int)(red*0.9)) & 0xFF;  // 4. decrease RED value by 10%
                     green = ((int)(green*1.3)) & 0xFF; // 4. increase GREEN value by 30%
-                    blue = ((int)(blue*2)) & 0xFF; // 5. double the BLUE value (multiply by 2)
+                    blue = (blue*2) & 0xFF; // 5. double the BLUE value (multiply by 2)
                     pixel = (red << 16) | (green << 8) | blue; // 6. Create the pixel from the values you've just changed. You also need here shifting and bitwise operations.
                 }
 
