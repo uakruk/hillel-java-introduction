@@ -60,6 +60,7 @@ public class TextHomeAssignment {
             newText = newText + myArray[i];
         }
         System.out.println(newText);
+
         // Note: you have to count how many paragraphs do you have in the text first.
         //    After that you can create an array of the desired length. After that, using the .substring(fromIndex, toIndex)
         //    method for paragraph extracting assign these paragraph string values into the array (e.g.: array[myIndex] = text.substring(fromIndex, toIndex))
@@ -82,6 +83,13 @@ public class TextHomeAssignment {
     }
     public static String addLineBreakAfterDotAndQuestionMark(String text) {
         return text.replace(".", ". \n").replace("?", "? \n");
+    }
+    public static int minUsingTernary (int firstValue, int secondValue) {
+        return (firstValue < secondValue ) ? firstValue : secondValue;
+    }
+
+    public static int maxUsingTernary (int firstValue, int secondValue) {
+        return (firstValue > secondValue ) ? firstValue : secondValue;
     }
 }
 
