@@ -28,12 +28,38 @@ public class HomeAssignment {
 
             int imageHeight = image.getHeight();
             int imageWidth = image.getWidth();
+            int imagePart = imageHeight/4;
 
             int[] originalImageData = image.getRGB(0, 0, imageWidth, imageHeight, null, 0, imageWidth);
 
             System.out.println("Image rgb values = " + originalImageData.length);
 
             int[] newImageData = new int[originalImageData.length];
+            for (int i=0; i< originalImageData.length;i++) {
+                int red = (originalImageData[i] >> 16) & 0xFF;
+                int green = (originalImageData[i] >> 8) & 0xFF;
+                int blue = (originalImageData[i] ) & 0xFF;
+                red = (int) ((int)red * 0.9);
+                green = (int)((int)green *1.3);
+                blue =  blue*2;
+
+                int pixel =0;
+
+                if (i % 100 == 0 && i % imageWidth !=0) {
+                    if (i / imageWidth < imagePart) {
+                        pixel = 0xFF << 16;
+                    } else if (i / imageWidth < imagePart * 2) {
+                    } else if (i / imageWidth < imagePart * 3) {
+
+                    } else {
+                        pixel = 0xFFFFFF;
+                    }
+                }else {
+                    pixel = (red << 16) | (green << 8) | blue;
+                }
+                newImageData[i] = pixel;
+
+            }
 
             // the RGB format:
             // We've got an array of integers. Each integer represents exactly ONE pixel. Each pixel is made of 3 colors: RED, GREEN and BLUE
