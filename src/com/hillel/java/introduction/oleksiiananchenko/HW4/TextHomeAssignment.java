@@ -1,13 +1,63 @@
 package com.hillel.java.introduction.oleksiiananchenko.HW4;
 
-import com.hillel.java.introduction.lesson3.Constants;
+import com.hillel.java.introduction.oleksiiananchenko.HW4.Constants;
 
 public class TextHomeAssignment {
 
     public static void main(String[] args) {
         final String text = Constants.TEXT;
 
+
         // 1. Count how many question sentences are present in the text. Print this number.
+        char questionMark = '?';
+        int count = 0;
+
+        for (int i=0; i< text.length(); i++){
+            if (text.charAt(i) == questionMark) {
+                count++;
+            }
+        }
+    System.out.println("The amount of questions in this text equals = " +count);
+
+
+
+// 2. Edit the given text according to the following rules:
+        int index = 0;
+        int par = 1;
+        while( text.indexOf("\n" + "\n", index) != -1) {
+            if (text.indexOf("\n" + "\n", index) != -1) {
+                par++;
+                index = text.indexOf("\n" + "\n", index) + 1;
+
+            }
+
+        }
+        System.out.println("The amount of paragraphs in text = " +par);
+
+        int fromIndex = 0;
+        String newText = "";
+        String[] newArray = new String[par];
+        for (int i = 0; i<par; i++) {
+            if (text.indexOf("\n" + "\n", fromIndex)!=-1) {
+                newArray[i] = "\t" + text.substring(fromIndex, text.indexOf("\n" + "\n", fromIndex));
+                newArray[i] = newArray[i].
+                        replace(".", ". \n").
+                        replace( "?", "? \n");
+                fromIndex = text.indexOf("\n" + "\n", fromIndex) +2;
+
+            }else{
+                newArray[i] = "\t" + text.
+                        substring(fromIndex, text.length()).
+                        replace(".", ". \n").
+                        replace("?", "? \n");
+            }
+            newText = newText + newArray[i];
+        }
+        String replacedNewText = newText.replaceAll("for example", "for INSTANCE");
+        System.out.println(replacedNewText);
+
+
+
         // 2. Edit the given text according to the following rules:
         //  * Each paragraph should start with some indentation (like tabulation, '\t') and end with the newline ('\n')
         //  * Each sentence should end with the newline ('\n')
@@ -23,5 +73,6 @@ public class TextHomeAssignment {
         //       before extracting the sentence from the paragraph, you have to take the smaller index (the closest one to the current position)
         //       and only after that extract the substring (sentence) from the paragraph.
         // One more important note: the .indexOf() mehtod returns the '-1' if no substring was found in the text.
+    // System.out.println(text);
     }
 }
