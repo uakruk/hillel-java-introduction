@@ -1,4 +1,4 @@
-package com.hillel.java.introduction.oleksiiananchenko;
+package com.hillel.java.introduction.berdinaleksei;
 
 import java.util.Scanner;
 
@@ -22,22 +22,22 @@ public class Main {
         // Try to understand which result you're expecting before running the program (because of different data types)
         // Do System.out.println() of the results.
         // Play around the assignment shortcuts (like integerNumber += 100;)
-        System.out.println("TASK 1");
+        System.out.println("First Task");
         // +
-        // here your code
+
         double addition = integerNumber + floatingPointNumber;
         System.out.println("Addition result = " +addition);
         // -
-        // here your code
+
         double subtraction = integerNumber - floatingPointNumber;
         System.out.println("Subtraction result = " +subtraction);
         // *
-        // here your code
+
         double multiplication = integerNumber * floatingPointNumber;
         System.out.println("Multiplication result = " +multiplication);
 
         // / (division)
-        // here your code
+
         double division = integerNumber / floatingPointNumber;
         System.out.println("Division result = " +division);
 
@@ -51,15 +51,15 @@ public class Main {
         System.out.println("Increment result = " +increment);
 
         // --
-        // here your code
+
         int decrement = --integerNumber;
         System.out.println("Decrement result = " +decrement);
 
         // 2. Declare 2 boolean values and compare them inside the System.out.println()
         // e.g.: boolean a = true; boolean b = false; System.out.println(a | b); (should be true)
         // Try to predict the result of the expression before running the program
-        // here your code
-        System.out.println("TASK 2");
+
+        System.out.println("Second Task");
         boolean a = true;
         boolean b = false;
         System.out.println("When a|b = ");
@@ -69,17 +69,17 @@ public class Main {
         // Instead of declaring the variables, let's call the methods directly:
         // e.g. System.out.println(getFirst() || getSecond());
         // perform it for different operations: ^ && || !. Try to change the order of calling these methods (like System.out.println(getSecond() || getFirst());
-        System.out.println("TASK 3");
-        System.out.println("When || :");
+        System.out.println("Third Task");
+        System.out.println(" || :");
         System.out.println(getFirst() || getSecond());
         System.out.println(getSecond() || getFirst());
-        System.out.println("When ^ :");
+        System.out.println(" ^ :");
         System.out.println(getFirst() ^ getSecond());
         System.out.println(getSecond() ^ getFirst());
-        System.out.println("When && :");
+        System.out.println(" && :");
         System.out.println(getFirst() && getSecond());
         System.out.println(getSecond() && getFirst());
-        System.out.println("When ! :");
+        System.out.println(" ! :");
         System.out.println(!(getFirst() && getSecond()));
         System.out.println(!(getSecond() && getFirst()));
 
@@ -87,7 +87,7 @@ public class Main {
 
         // 4. Convert the character to the short
         // perform bitwise operations with the short number you've just got with the following numbers: 0xFFFF, 0b00000001
-        System.out.println("TASK 4");
+        System.out.println("Fourth Task");
         short shchar = (short)character;
         System.out.println(shchar);
 
@@ -129,7 +129,7 @@ public class Main {
          */
 
         // 5. Try to shift your number left and right:
-        System.out.println("TASK 5");
+        System.out.println("Fifth Task");
 
         // >>
         int i = shchar >> 2 ;
@@ -143,7 +143,7 @@ public class Main {
         System.out.println(Integer.toBinaryString(p));
 
         // 6*. Try to get the 512 from the 1 without any multiplications, using any libraries or adding any numbers.
-        System.out.println("TASK 6");
+        System.out.println("Sixth Task");
         int one = 0x01 << 9;
 
         System.out.println(Integer.toBinaryString(one));
