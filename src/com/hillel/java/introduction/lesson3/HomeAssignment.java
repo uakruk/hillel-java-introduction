@@ -51,9 +51,13 @@ public class HomeAssignment {
                     if (i / imageWidth < imagePart) {
                         pixel = 0xFF << 16;
                     } else if (i / imageWidth < imagePart * 2) {
-                    } else if (i / imageWidth < imagePart * 3) {
+                        pixel = 0xFF << 8;
+                    }
 
-                    } else {
+                    else if (i / imageWidth < imagePart * 3){
+                     {
+                            pixel = 0xff;}
+                    } else if (i / imageWidth < imagePart) {
                         pixel = 0xFFFFFF;
                     }
                 }else {
