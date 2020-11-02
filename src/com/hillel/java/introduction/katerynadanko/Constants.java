@@ -33,50 +33,76 @@ public class Constants {
             fromParagraphs++;
         }
 
-        String firstParagraph = TEXT2.substring(0,432);
-        String secondParagraph = TEXT2.substring(432,755);
-        String thirdParagraph = TEXT2.substring(756,1290);
-        String fourthParagraph = TEXT2.substring(1291,2025);
-        String fifthParagraph = TEXT2.substring(2026,2778);
-        String sixthParagraph = TEXT2.substring(2779,3191);
-        String seventhParagraph = TEXT2.substring(3192,3720);
+        int fromIndex = 0;
+        while ((fromIndex = TEXT2.indexOf('\t', fromIndex)) != -1) {
 
-        String [] sentences = new String[]{firstParagraph, secondParagraph, thirdParagraph, fourthParagraph,
-                fifthParagraph, sixthParagraph, seventhParagraph};
+        }
 
+        int endParagraph = 0;
+        int counter = 0;
+        int start = 0;
+        String paragraph;
+        String paragraphsArray[] = new String[7];
 
-
+        while (TEXT.substring(start, TEXT.length()).indexOf('\t') != -1) {
+            endParagraph = TEXT.substring(start + 1, TEXT.length()).indexOf('\t');
+            TEXT.substring(0, endParagraph);
+            if (endParagraph != -1) {
+                paragraph = TEXT.substring(start, endParagraph);
+            } else {
+                paragraph = TEXT.substring(start, TEXT.length());
+            }
+            paragraphsArray[counter] = paragraph;
+            start = endParagraph + 1;
+            counter++;
+            System.out.println(paragraph);
+        }
         System.out.println("Text with \"for INSTANCE\": ");
         System.out.println(TEXT2);
         System.out.println();
         System.out.println("Number of question mark: " + countQuestion);
         System.out.println("Number of paragraphs: " + paragraphsCount);
-
-
-        System.out.println(TEXT2.indexOf("BC."));
-        System.out.println(TEXT2.indexOf("answers."));
-        System.out.println(TEXT2.indexOf("broken."));
-        System.out.println(TEXT2.indexOf("basic sounds."));
-        System.out.println(TEXT2.indexOf("together."));
-        System.out.println(TEXT2.indexOf("language?"));
-        System.out.println(TEXT2.indexOf("DNA."));
-
-        System.out.println("Text by paragraphs: ");
-        System.out.println();
-
-        System.out.println(firstParagraph);
-        System.out.println(secondParagraph);
-        System.out.println(thirdParagraph);
-        System.out.println(fourthParagraph);
-        System.out.println(fifthParagraph);
-        System.out.println(sixthParagraph);
-        System.out.println(seventhParagraph);
-
-        for (int i=0; i<sentences.length; i++){
-            System.out.println("\n"+ i + " " + "paragraph: "+ sentences[i]);
-        }
     }
+
 }
+
+
+//        String firstParagraph = TEXT2.substring(0,'\t');
+//        String secondParagraph = TEXT2.substring(432,755);
+//        String thirdParagraph = TEXT2.substring(756,1290);
+//        String fourthParagraph = TEXT2.substring(1291,2025);
+//        String fifthParagraph = TEXT2.substring(2026,2778);
+//        String sixthParagraph = TEXT2.substring(2779,3191);
+//        String seventhParagraph = TEXT2.substring(3192,3720);
+
+//        String [] sentences = new String[]{firstParagraph, secondParagraph, thirdParagraph, fourthParagraph,
+//                fifthParagraph, sixthParagraph, seventhParagraph};
+
+
+//
+//        System.out.println(TEXT2.indexOf("BC."));
+//        System.out.println(TEXT2.indexOf("answers."));
+//        System.out.println(TEXT2.indexOf("broken."));
+//        System.out.println(TEXT2.indexOf("basic sounds."));
+//        System.out.println(TEXT2.indexOf("together."));
+//        System.out.println(TEXT2.indexOf("language?"));
+//        System.out.println(TEXT2.indexOf("DNA."));
+
+//        System.out.println("Text by paragraphs: ");
+//        System.out.println();
+
+//        System.out.println(firstParagraph);
+//        System.out.println(secondParagraph);
+//        System.out.println(thirdParagraph);
+//        System.out.println(fourthParagraph);
+//        System.out.println(fifthParagraph);
+//        System.out.println(sixthParagraph);
+//        System.out.println(seventhParagraph);
+//
+//        for (int i=0; i<sentences.length; i++){
+//            System.out.println("\n"+ i + " " + "paragraph: "+ sentences[i]);
+//        }
+
 
 
     //PolicyUtils.Text
