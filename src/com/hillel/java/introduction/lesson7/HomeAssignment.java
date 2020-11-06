@@ -36,8 +36,8 @@ public class HomeAssignment {
 
         // don't modify this
         performSortingAndMeasureTime(array, HomeAssignment::bubbleSort, "Bubble"); // just for example
-    //    performSortingAndMeasureTime(arrayCopy, HomeAssignment::mergeSort, "Merge");
-   //     performSortingAndMeasureTime(arraySecondCopy, HomeAssignment::quickSort, "Quicksort");
+        performSortingAndMeasureTime(arrayCopy, HomeAssignment::mergeSort, "Merge");
+        performSortingAndMeasureTime(arraySecondCopy, HomeAssignment::quickSort, "Quicksort");
 
         int[][] matrix = new int[8][6]; // you can change the size of the matrix for whatever you want
         for (int i = 0; i < matrix.length; i++) {
