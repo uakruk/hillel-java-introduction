@@ -1,6 +1,7 @@
 package pavelkim.lesson7home;
 
 public class HomeWork7 {
+
     public double averageWithin(int[] array) {
         int sum = 0;
         for (int j : array) {
@@ -19,6 +20,7 @@ public class HomeWork7 {
         }
         return max;
     }
+
     public int minArrayValue(int [] array) {
         int min = array[0];
         for (int j : array) {
@@ -28,4 +30,39 @@ public class HomeWork7 {
         }
         return min;
     }
+
+//    public int[] merge(int[] array1, int[] array2) {
+//
+//        while ()
+//
+//    }
+
+    public int[] quickSort(int[] array, int left, int right) {
+
+        int pivot = array[0];
+
+        while(left < right) {
+            while (array[right] >=pivot && left < right) {
+                right--;
+            }
+            while (array[left] <= pivot && left < right) {
+                left++;
+            }
+            int temp = array[left];
+            array[left] = array[right];
+            array[right] = temp;
+            int leftHold = left;
+            int rightHold = right;
+
+            quickSort(array, leftHold, rightHold);
+        }
+        return array;
+    }
+
+    public int[] quickSortRec(int[] array) {
+        quickSort(array, 0, array.length-1);
+
+        return array;
+    }
+
 }
