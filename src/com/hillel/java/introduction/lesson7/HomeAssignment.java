@@ -30,6 +30,13 @@ public class HomeAssignment {
         int[] arraySecondCopy = Arrays.copyOf(array, array.length);
 
         // here your code, output the average, min, max values
+        System.out.println("The average within the array = " + getAverageValue(array));
+        int min = getMinimumValue(array);
+        System.out.println("Minimum number of this array = " + min);
+        System.out.println("Maximum number of this array = " + getMaximumValue(array));
+
+
+
 
 
         // ... your code...
@@ -85,18 +92,34 @@ public class HomeAssignment {
     }
 
     public static double getAverageValue(int[] array) {
-        // here your code;
-        return 0;
+
+        int sum = 0;
+        for ( int i = 0; i < array.length; i++ ){
+            sum = sum + array[i];
+
+        }
+        float av = sum / array.length;
+        return av;
     }
 
     public static int getMaximumValue(int[] array) {
+        int x = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (x < array[i]) x = array[i];
+
+        }
         // here your code;
-        return 0;
+        return x;
     }
 
     public static int getMinimumValue(int[] array) {
+        int x = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (x > array[i]) x = array[i];
+
+        }
         // here your code;
-        return 0;
+        return x;
     }
 
     public static void mergeSort(int[] inputArray) {
