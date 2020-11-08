@@ -11,7 +11,8 @@ public class Calculator {
         DIVIDE,
         MODULUS,
         POW,
-        SIGN_CHANGE;
+        SIGN_CHANGE,
+        FACTORIAL;
     }
 
     public static void main(String[] args) {
@@ -46,6 +47,9 @@ public class Calculator {
             case '~':
                 operation = Operation.SIGN_CHANGE;
                 break;
+            case '!':
+                operation = Operation.FACTORIAL;
+                break;
             default:
                 System.out.println("Unkonwn operation, aborting.");
                 System.exit(0);
@@ -54,7 +58,7 @@ public class Calculator {
         double firstNumber, secondNumber;
 
         boolean requiresSecondNumber = true;
-        if (operation == Operation.SIGN_CHANGE) {
+        if ((operation == Operation.SIGN_CHANGE) || (operation == Operation.FACTORIAL)) {
             requiresSecondNumber = false;
         }
 
@@ -97,6 +101,11 @@ public class Calculator {
             System.out.println("Result = " + signChange(firstNumber));
             // call the signChange() method here
         }
+        if (operation == Operation.FACTORIAL){
+            result = (int)faktorial(firstNumber);
+            System.out.println("Result = " + result);
+        }
+
 //        System.out.println("Result = " + result);
     }
     public static double plus(double a, double b) {
@@ -136,5 +145,26 @@ public class Calculator {
         resKD = -a;
         return resKD;
     }
+
+    public static double faktorial(double number) {
+        if (number <=1) {
+            return 1;
+        } else {
+            int n = 1;
+            for (int i = 2; number >= i; i++) {
+                n = n * i;
+            }
+            return n;
+        }
+    }
+
+    public static long faktorial(int number) {
+        if (number <=1) {
+            return 1;
+        } else {
+            return number * faktorial(--number);
+        }
+    }
+
 
 }

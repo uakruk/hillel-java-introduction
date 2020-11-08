@@ -85,11 +85,11 @@ public class Constants {
 
     }
 
-//        System.out.println("Text with \"for INSTANCE\": ");
-//        System.out.println(TEXT2);
-//        System.out.println();
-//        System.out.println("Number of question mark: " + countQuestion);
-//        System.out.println("Number of paragraphs: " + paragraphsCount);
+        System.out.println("Text with \"for INSTANCE\": ");
+        System.out.println(TEXT2);
+        System.out.println();
+        System.out.println("Number of question mark: " + countQuestion);
+        System.out.println("Number of paragraphs: " + paragraphsCount);
     }
 
 }

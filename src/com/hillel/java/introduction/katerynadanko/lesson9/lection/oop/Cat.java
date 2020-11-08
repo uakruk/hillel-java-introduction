@@ -4,9 +4,27 @@ import java.util.Objects;
 
 public class Cat extends Animal {
     String boss;
+    String fluffiness;
+    int levelOfSoftnessOfPaws;
 
-    public void pissToShoes(){
-        System.out.println("I`m pissing to shoes");
+    public Cat() {
+        System.out.println("Initial constructor");
+    }
+
+    public Cat(String fluffiness) {
+        this.fluffiness = fluffiness;
+        System.out.println("Cat with fluffiness - constructor");
+    }
+
+    public Cat(String fluffiness, int levelOfSoftnessOfPaws) {
+        this.fluffiness = fluffiness;
+        this.levelOfSoftnessOfPaws = levelOfSoftnessOfPaws;
+        System.out.println("Cat with fluffiness and levelOfSoftnessOfPaws - constructor");
+    }
+
+    @Override
+    public void sound() {
+        System.out.println("Meow!");
     }
 
     @Override
@@ -22,12 +40,4 @@ public class Cat extends Animal {
         return Objects.hash(boss);
     }
 
-    @Override
-    public String toString() {
-        return "Cat{" +
-                "boss='" + boss + '\'' +
-                " weight= " + weight +
-                " size= " + size +
-                '}';
-    }
 }
