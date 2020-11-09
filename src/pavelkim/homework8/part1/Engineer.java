@@ -1,4 +1,4 @@
-package pavelkim.homework8;
+package pavelkim.homework8.part1;
 
 public class Engineer {
 
