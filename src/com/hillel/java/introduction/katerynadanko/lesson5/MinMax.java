@@ -24,48 +24,69 @@ public class MinMax {
         return a > b ? a : b;
     }
 
-    public static void returnEndIndex(String paragraphText){
-        int endOfSentences;
-        int searchFromIndex = 0;
+    public static int returnEndIndex(String paragraphText, int searchFromIndex){
+        int endOfSentences1 = paragraphText.indexOf('.', searchFromIndex)-1;
+        int endOfSentences2 = paragraphText.indexOf('!', searchFromIndex)-1;
+        int endOfSentences3 = paragraphText.indexOf('?', searchFromIndex)-1;
 
-        while ((searchFromIndex = paragraphText.indexOf('.'|'?'|'!', searchFromIndex)) != -1) {
-            endOfSentences = paragraphText.indexOf('.' | '?' | '!')-1;
-
-            searchFromIndex ++;
-                System.out.println(endOfSentences);
-        }
+        if ((endOfSentences1 < endOfSentences2) | (endOfSentences1 < endOfSentences3))
+            return endOfSentences1;
+        else if ((endOfSentences2 < endOfSentences1) | (endOfSentences2 < endOfSentences3))
+            return endOfSentences2;
+        else if ((endOfSentences3 < endOfSentences1) | (endOfSentences3 < endOfSentences2))
+            return endOfSentences2;
+        else
+            return -1;
     }
 
-public static int countSentences (String paragraph) {
-    int fromSentences = 0;
+public static int countSentences (String paragraph, String serchEndOfSentences) {
+    int beginningOfParagraph = 0;
     int amountOfSentences = 0;
 
-    while ((fromSentences = paragraph.indexOf('.' | '?' | '!', fromSentences)) != -1) {
-        fromSentences++;
+    while ((beginningOfParagraph = paragraph.indexOf(serchEndOfSentences, beginningOfParagraph)) != -1) {
+        beginningOfParagraph++;
         amountOfSentences++;
     }
     return amountOfSentences;
 }
 
-public static void extractSentences (String paragraph){
-    String[] sentences = new String[50];
-    String sentence = "";
-    int searchFromIndex = 0;
+
+    public static void extractSentences (String paragraph) {
+
+        int searchFromIndex = 0;
+        int endOfSentences1 = 0;
+        int endOfSentences2 = 0;
+        int endOfSentences3 = 0;
+
+//        int endOfSentences2 = paragraph.indexOf('!', searchFromIndex);
+//        int endOfSentences3 = paragraph.indexOf('?', searchFromIndex);
+
+        String[] sentences = new String[10];
+        String sentence;
+
+
     int endOfSentences = 0;
-    int counter = 0;
+        int counter = 0;
 
-    while ((searchFromIndex = paragraph.indexOf('.'|'?'|'!', searchFromIndex)) != -1) {
-            sentence = paragraph.substring(searchFromIndex, endOfSentences);
+        while ((searchFromIndex = paragraph.indexOf(endOfSentences1, searchFromIndex)) != -1) {
+
+            endOfSentences1 = paragraph.indexOf('.', searchFromIndex);
+            endOfSentences2 = paragraph.indexOf('?', searchFromIndex);
+            endOfSentences3 = paragraph.indexOf('!', searchFromIndex);
+
+            if (endOfSentences1 != -1) {
+                sentence = paragraph.substring(searchFromIndex, endOfSentences1);
+            } else {
+                sentence = paragraph.substring(searchFromIndex);
+            }
+
+            sentences[counter] = sentence;
+            searchFromIndex = endOfSentences;
+            counter++;
+            System.out.println("sentence " + counter + " " + sentence);
+
         }
-
-        sentences[counter] = sentence;
-//        searchFromIndex = endOfSentences;
-        counter++;
-
-    for(String s : sentences){
-        System.out.println(sentence);
-    }
-    }
+        }
 
     public static void main(String[] args) {
         System.out.println(max(2, 6));
@@ -84,12 +105,14 @@ public static void extractSentences (String paragraph){
                 "searching min() and max() values to determine the closest sentence end index. If nothing is " +
                 "found then just return the.";
 
-        System.out.println("Index of sentences ends: ");
-        returnEndIndex(task);
+        String task2 = "Create a method which would return the sentence end index depending on the";
 
-        System.out.println("Amount of Sentences: " + countSentences(task));
+        System.out.println("Index of sentences ends: " + returnEndIndex(task, 12));
+        System.out.println("Index of sentences ends: " + returnEndIndex(task2, 1));
 
-//        extractSentences(task);
+        System.out.println("Amount of Sentences: " + countSentences(task, "."));
+
+        extractSentences(task);
 
 }
 }
