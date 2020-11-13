@@ -82,6 +82,9 @@ public class HomeAssignment {
         System.out.println("The results are:");
         System.out.println(Arrays.toString(array));
         System.out.println();
+        System.out.println("Average value : " + getAverageValue(array));
+        System.out.println("Max value : " + getMaximumValue(array));
+        System.out.println("Min value : " + getMinimumValue(array));
     }
 
     public static double getAverageValue(int[] array) {
@@ -120,8 +123,48 @@ public class HomeAssignment {
     }
 
     public static void quickSort(int[] inputArray) {
-        // here your code, implement the sorting of the array using the quicksort algorithm.
+        int start = 0;
+        int end = inputArray.length-1;
 
+
+        quickSortEx(inputArray, start, end);
+        // here your code, implement the sorting of the array using the quicksort algorithm.
+    }
+
+    public static void quickSortEx(int[] array, int start, int end) {
+        if (array == null || array.length == 0)
+            return;
+
+        if (start >= end)
+            return;
+
+        int mid = start + (end - start) / 2;
+        int pivot = array[mid];
+        int i = start;
+        int j = end;
+
+        while (i <= j) {
+            while (array[i] < pivot) {
+                i++;
+            }
+            while (array[j]>pivot) {
+                j--;
+            }
+            if(i<=j) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                    i++;
+                j--;
+            }
+
+            if(start<j) {
+                quickSortEx(array,start,j);
+            }
+            if(end>i) {
+                quickSortEx(array,i,end);
+            }
+        }
     }
 
     public static void bubbleSort(int[] array) {
