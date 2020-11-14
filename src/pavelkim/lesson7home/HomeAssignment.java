@@ -54,7 +54,7 @@ public class HomeAssignment {
         transposeMatrix(matrix);
 
         System.out.println("The result is:");
-        printMatrix(matrix);
+        printMatrix(transposeMatrix(matrix));
 
     }
 
@@ -118,8 +118,49 @@ public class HomeAssignment {
     }
 
     public static void mergeSort(int[] inputArray) {
-        // here your code, implement the sorting of the array using the merge algorithm.
 
+        mergeSortRec(inputArray, 0, inputArray.length);
+    }
+    public static void mergeSortRec(int[] inputArray, int low, int high) {
+
+        if (high <= low) return;
+
+        int mid = (low+high)/2;
+        mergeSortRec(inputArray, low, mid);
+        mergeSortRec(inputArray, mid+1, high);
+        merge(inputArray, low, mid, high);
+    }
+
+    public static void merge(int[] array, int low, int mid, int high) {
+
+        int[] leftPart = new int[mid];
+        int[] rightPart = new int[array.length - mid];
+        for (int i = 0; i < leftPart.length; i++)
+            leftPart[i] = array[i];
+        for(int i=0; i<(array.length-mid); i++) {
+            rightPart[i] = array[mid + i];
+        }
+
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        for(int i = 0; i< array.length; i++) {
+            if(leftIndex<leftPart.length && rightIndex<rightPart.length) {
+                if(leftPart[leftIndex] < rightPart[rightIndex]) {
+                    array[i] = leftPart[leftIndex];
+                    leftIndex++;
+                } else {
+                    array[i] = rightPart[rightIndex];
+                    rightIndex++;
+                }
+            } else if(leftIndex< leftPart.length) {
+                array[i] = leftPart[leftIndex];
+                leftIndex++;
+            } else if(rightIndex < rightPart.length) {
+                array[i] = rightPart[rightIndex];
+                rightIndex++;
+            }
+        }
     }
 
     public static void quickSort(int[] inputArray) {
@@ -182,18 +223,22 @@ public class HomeAssignment {
     }
 
     public static int[][] transposeMatrix(int[][] matrix) {
-        // here your code, transpose the input matrix.
-        return null;
+        int[][] transposedMatrix = new int[matrix[0].length][matrix.length];
+
+        for(int i =0; i<matrix.length; i++) {
+            for(int j = 0 ; j<matrix[i].length; j++) {
+                transposedMatrix[j][i] = matrix[i][j];
+            }
+        }
+        return transposedMatrix;
     }
 
     public static void printMatrix(int[][] matrix) {
-        // show the matrix as the output, keep the rows and columns.
-        // for example, if you have matrix 3 x 3 you should output something like:
-        // | 1    2    12 |
-        // | 10   8    7  |
-        // | 7    3    4  |
-        // so it should look like in the math.
-
-        // here your code.
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 }
