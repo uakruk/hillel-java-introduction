@@ -125,10 +125,7 @@ public class HomeAssignment {
     public static void quickSort(int[] inputArray) {
         int start = 0;
         int end = inputArray.length-1;
-
-
         quickSortEx(inputArray, start, end);
-        // here your code, implement the sorting of the array using the quicksort algorithm.
     }
 
     public static void quickSortEx(int[] array, int start, int end) {
