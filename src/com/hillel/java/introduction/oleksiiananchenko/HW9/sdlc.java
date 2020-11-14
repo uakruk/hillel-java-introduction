@@ -3,6 +3,12 @@ package com.hillel.java.introduction.oleksiiananchenko.HW9;
 public class sdlc {
     private boolean passed;
     private int devs;
+    private String audit;
+
+    public Audit( int developers, String audit ){
+        this.devs = developers;
+        this.audit = audit;
+    }
 
     public void Training(){
         System.out.println("Trainig phase: ");
