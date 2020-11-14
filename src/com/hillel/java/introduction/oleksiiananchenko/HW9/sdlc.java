@@ -2,7 +2,7 @@ package com.hillel.java.introduction.oleksiiananchenko.HW9;
 
 public class sdlc {
     private boolean passed;
-    private double devs;
+    private int devs;
 
     public void Training(){
         System.out.println("Trainig phase: ");
