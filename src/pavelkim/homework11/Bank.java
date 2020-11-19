@@ -1,11 +1,16 @@
 package pavelkim.homework11;
 
-public abstract class Bank {
-    private String name;
-    private String countryCode;
+public class Bank {
+    private int numberOfOffices;
+    private Office[] offices = new Office[numberOfOffices];
+    private String bankName;
 
-    public Bank(String name, String countryCode) {
-        this.name = name;
-        this.countryCode = countryCode;
+    public Bank(int numberOfOffices, Office[] offices, String bankName) {
+        this.numberOfOffices = numberOfOffices;
+        this.offices = offices;
+        this.bankName = bankName;
+    }
+    public String getBankName() {
+        return this.bankName;
     }
 }
