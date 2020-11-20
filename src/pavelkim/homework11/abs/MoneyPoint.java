@@ -12,7 +12,6 @@ public abstract class MoneyPoint implements TakeMoney, PutMoney {
     }
 
     public MoneyPoint() {
-
     }
 
     @Override

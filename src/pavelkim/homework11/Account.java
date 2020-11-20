@@ -2,11 +2,13 @@ package pavelkim.homework11;
 
 import pavelkim.homework11.abs.MoneyPoint;
 
-public class Client {
+public class Account {
     private int id;
     private double balance;
+    private Bank bank;
 
-    public Client(int id, double balance) {
+    public Account(Bank bank, int id, double balance) {
+        this.bank=bank;
         this.id = id;
         this.balance = balance;
     }
@@ -21,12 +23,12 @@ public class Client {
         this.balance = this.balance +sum;
     }
 
-
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", balance=" + balance +
+        return "Account{" +
+                "bank : " + bank.getBankName() +
+                ", id : " + id +
+                ", balance : " + balance +
                 '}';
     }
 }

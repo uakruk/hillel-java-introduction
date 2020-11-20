@@ -4,7 +4,10 @@ import pavelkim.homework11.abs.MoneyPoint;
 
 public class BankCashDesk extends MoneyPoint {
 
-    public BankCashDesk(double cashAmount) {
+    Office office;
+
+    public BankCashDesk(double cashAmount, Office office) {
         super(cashAmount);
+        this.office = office;
     }
 }
