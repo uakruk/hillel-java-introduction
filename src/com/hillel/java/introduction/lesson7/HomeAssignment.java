@@ -1,6 +1,7 @@
 package com.hillel.java.introduction.lesson7;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -80,7 +81,7 @@ public class HomeAssignment {
         long nanosTook = duration - secondsInNanos - millisInNanos - microsInNanos;
         System.out.printf("%s sort has finished. It took %d seconds %d millis %d micros and %d nanos\n", sortType, secondsTook, millisTook, microsTook, nanosTook);
         System.out.println("The results are:");
-        System.out.println(Arrays.toString(array));
+       // System.out.println(Arrays.toString(array));
         System.out.println();
     }
 
@@ -140,5 +141,33 @@ public class HomeAssignment {
         // so it should look like in the math.
 
         // here your code.
+
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+
+        String format = "| ";
+        format += "%d\t\t".repeat(columns - 1) + "%d |\n";
+
+
+        for (int i = 0; i < matrix.length; i++) {
+
+      //      System.out.println(String.format(format, matrix[i]));
+            System.out.printf(format, getCopyOf(matrix[i]));
+        }
+//
+//        System.out.print("|");
+//        System.out.println("\t");
+//        System.out.println();
+//        String.format("| %d\t%d\t%d |");
+
+    }
+
+    public static Integer[] getCopyOf(int[] array) {
+        Integer[] result = new Integer[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            result[i] = array[i];
+        }
+        return result;
     }
 }
