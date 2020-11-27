@@ -55,6 +55,5 @@ public class Main {
 
         System.out.println("#############################################################################################");
         paymentCardList.printAvailableCards();
-//        paymentCardList.printAvailableCards();
     }
 }
