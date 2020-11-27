@@ -13,6 +13,10 @@ public class Account {
         this.balance = balance;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void getMoneyFormMoneyPoint(double sum, MoneyPoint moneyPoint) {
         moneyPoint.takeMoney(sum);
         this.balance = this.balance - sum;

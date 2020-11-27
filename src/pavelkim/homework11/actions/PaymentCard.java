@@ -27,4 +27,10 @@ public class PaymentCard {
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
+
+    @Override
+    public String toString() {
+        return "{ Account : " + account.getId() + ";\n" +
+                "Card Number : " + this.getCardNumber();
+    }
 }
