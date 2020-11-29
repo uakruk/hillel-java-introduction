@@ -17,7 +17,7 @@ private PaymentCardEntry paymentCardEntry;
         else {
             PaymentCardEntry temp = paymentCardEntry;
 
-            while (paymentCardEntry.next != null) {
+            while (temp.next != null) {
                 temp = temp.next;
             }
 

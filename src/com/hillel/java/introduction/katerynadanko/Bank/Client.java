@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Client {
     private String name;
-     List<BankAccount> bankAccountList = new ArrayList<>();
+     List<BankAccount> bankAccounts = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -17,7 +17,7 @@ public class Client {
 
     public Client(String name) {
         this.name = name;
-//        this.accounts = accounts;
+//        this.bankAccounts = bankAccounts;
     }
 
     @Override

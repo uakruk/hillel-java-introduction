@@ -1,11 +1,8 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Test {
 
-    public static void main(String[] args) throws AvalibleBankMoneyExeption {
+    public static void main(String[] args) throws AvailableBankMoneyException {
 
         ATM atm1 = new ATM();
 //        atm1.setAvailableMoney(1000);
@@ -17,13 +14,22 @@ public class Test {
 
         Terminal terminal1 = new Terminal();
         terminal1.putMoney(1000, kateAccount);
-        terminal1.makePayments(2000, tomAccount, kateAccount);
+
+        try {
+            terminal1.makePayments(200_000, tomAccount, kateAccount);
+        } catch (AvailableClientMoneyException e) {
+            System.out.println("Not enough money in your account!!!");;
+        }
 
 
         BusinessAccount collinsAccount = new BusinessAccount(12, 100_000_000, new BusinessClient("Collins"));
         POSTerminal posTerminal = new POSTerminal();
 
-        posTerminal.makePayments(2_500, kateAccount, collinsAccount);
+        try {
+            posTerminal.makePayments(200_500, kateAccount, collinsAccount);
+        } catch (AvailableClientMoneyException e) {
+            System.out.println("You don`t have such sum!!!");
+        }
 
 
         PaymentCard tomCard1 = new PaymentCard(tomAccount, "434YUJ", true);
@@ -35,15 +41,12 @@ public class Test {
         PaymentCard kateCard3 = new PaymentCard(kateAccount, "378OKH", true);
         PaymentCard kateCard4 = new PaymentCard(kateAccount, "410ANV", true);
         PaymentCard card1 = new PaymentCard(new PrivateAccount(2, 30_000,
-                new PrivateClient("Nick")), "4", true);
+                new PrivateClient("Mick Jagger")), "4", true);
 
 
         PaymentCardList paymentCardList = new PaymentCardList();
-//        PaymentCardList.PaymentCardEntry paymentCardEntry = paymentCardList.new PaymentCardEntry
-//                (new PaymentCard(new PrivateAccount(24, 45_000, new PrivateClient("Jack")),
-//                        "789PGN", true));
-
         System.out.println();
+        paymentCardList.printAvailableCards();
 
         paymentCardList.addCard(tomCard1);
         paymentCardList.addCard(tomCard2);
@@ -56,15 +59,16 @@ public class Test {
         paymentCardList.addCard(kateCard4);
 
         paymentCardList.addCard(card1);
-//        System.out.println();
-        paymentCardList.printAvailableCards();
-//        System.out.println();
 
-//        System.out.println(paymentCardList.getByCardNumber("789PGN"));
-//        System.out.println(paymentCardList.getByCardNumber("378OKH"));
-//        System.out.println();
-//
-//        paymentCardList.printAvailableCards();
+        System.out.println();
+        paymentCardList.printAvailableCards();
+        System.out.println();
+
+        System.out.println(paymentCardList.getByCardNumber("767JNB"));
+        System.out.println(paymentCardList.getByCardNumber("378OKH"));
+        System.out.println();
+
+        paymentCardList.printAvailableCards();
 
 
 
