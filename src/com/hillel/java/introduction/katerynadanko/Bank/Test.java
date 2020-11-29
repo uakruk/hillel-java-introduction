@@ -2,7 +2,7 @@ package com.hillel.java.introduction.katerynadanko.Bank;
 
 public class Test {
 
-    public static void main(String[] args) throws AvailableBankMoneyException {
+    public static void main(String[] args) throws AvailableBankMoneyException, ValidationCardException {
 
         ATM atm1 = new ATM();
 //        atm1.setAvailableMoney(1000);
@@ -18,7 +18,7 @@ public class Test {
         try {
             terminal1.makePayments(200_000, tomAccount, kateAccount);
         } catch (AvailableClientMoneyException e) {
-            System.out.println("Not enough money in your account!!!");;
+            System.out.println("Not enough money in your account! Enter the sum less then " + tomAccount.getSum());
         }
 
 
@@ -28,25 +28,26 @@ public class Test {
         try {
             posTerminal.makePayments(200_500, kateAccount, collinsAccount);
         } catch (AvailableClientMoneyException e) {
-            System.out.println("You don`t have such sum!!!");
+            System.out.println("You don`t have such sum! Enter the sum less then " + kateAccount.getSum());
         }
 
 
         PaymentCard tomCard1 = new PaymentCard(tomAccount, "434YUJ", true);
         PaymentCard tomCard2 = new PaymentCard(tomAccount, "587KOI", true);
         PaymentCard tomCard3 = new PaymentCard(tomAccount, "687TFD", true);
-        PaymentCard tomCard4 = new PaymentCard(tomAccount, "767JNB", true);
+        PaymentCard tomCard4 = new PaymentCard(tomAccount, "767JNB", false);
         PaymentCard kateCard1 = new PaymentCard(kateAccount, "167HSL", true);
         PaymentCard kateCard2 = new PaymentCard(kateAccount, "278CVB", true);
         PaymentCard kateCard3 = new PaymentCard(kateAccount, "378OKH", true);
         PaymentCard kateCard4 = new PaymentCard(kateAccount, "410ANV", true);
         PaymentCard card1 = new PaymentCard(new PrivateAccount(2, 30_000,
-                new PrivateClient("Mick Jagger")), "4", true);
+                new PrivateClient("Mick Jagger")), "445KJH", true);
 
 
         PaymentCardList paymentCardList = new PaymentCardList();
         System.out.println();
-        paymentCardList.printAvailableCards();
+
+            paymentCardList.printAvailableCards();
 
         paymentCardList.addCard(tomCard1);
         paymentCardList.addCard(tomCard2);
@@ -61,7 +62,10 @@ public class Test {
         paymentCardList.addCard(card1);
 
         System.out.println();
+
         paymentCardList.printAvailableCards();
+
+
         System.out.println();
 
         System.out.println(paymentCardList.getByCardNumber("767JNB"));
@@ -69,8 +73,6 @@ public class Test {
         System.out.println();
 
         paymentCardList.printAvailableCards();
-
-
 
     }
 }

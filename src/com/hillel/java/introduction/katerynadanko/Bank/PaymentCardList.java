@@ -1,8 +1,5 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PaymentCardList {
 private PaymentCardEntry paymentCardEntry;
 
@@ -44,12 +41,17 @@ private PaymentCardEntry paymentCardEntry;
         return paymentCard;
     }
     }
-    void printAvailableCards(){
+    void printAvailableCards()
+            throws ValidationCardException
+    {
         if (paymentCardEntry == null) {
             System.out.println("No available cards");
         }
-        else {
 
+        else {
+             if(paymentCardEntry.paymentCard.validationCard() == false){
+                 System.out.println("Card number " + paymentCardEntry.paymentCard.getCartNumber() + " is not available!");
+             }
             PaymentCardEntry temp = paymentCardEntry;
             do  {
                 System.out.println(temp.paymentCard);

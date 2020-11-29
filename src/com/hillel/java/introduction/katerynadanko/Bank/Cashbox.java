@@ -1,13 +1,19 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
+import java.util.Random;
+
 public class Cashbox implements GivebleMoney, PutableMoney, MakeblePayments{
 
+     ConnectionRandom connectionRandom = new ConnectionRandom();
      private double availableMoney;
      private int distanceFromClient;
 
      @Override
      public double makePayments(double sum, PrivateAccount accountFrom, PrivateAccount accountTo)
-             throws AvailableClientMoneyException {
+             throws AvailableClientMoneyException, ConnectionException {
+
+          connectionRandom.randConnect();
+
           double persent = (sum/100) * 2;
           double sumWhithPersent = sum + persent;
           double availableClientMoney = accountFrom.getSum()-sumWhithPersent;
@@ -24,7 +30,10 @@ public class Cashbox implements GivebleMoney, PutableMoney, MakeblePayments{
      }
 
      @Override
-     public double withdrawMoney(double sum, PrivateAccount account) throws AvailableBankMoneyException {
+     public double withdrawMoney(double sum, PrivateAccount account) throws AvailableBankMoneyException, ConnectionException {
+
+          connectionRandom.randConnect();
+
           if (sum > availableMoney)
                throw new AvailableBankMoneyException("You can`t withdraw " +
                        sum + ", please enter the sum from 20 to" + getAvailableMoney() + "and try again!");
