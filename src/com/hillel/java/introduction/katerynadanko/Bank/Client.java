@@ -1,10 +1,11 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
     private String name;
-    Account[] accounts;
+     List<BankAccount> bankAccountList = new ArrayList<>();
 
     public String getName() {
         return name;

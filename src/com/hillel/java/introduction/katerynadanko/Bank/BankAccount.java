@@ -3,14 +3,14 @@ package com.hillel.java.introduction.katerynadanko.Bank;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Account {
+public abstract class BankAccount {
 
     private int id;
     private double sum;
-    List<PaymentCard> paymentCards;
+    private PaymentCardList paymentCardList;
     public Client client;
 
-    public Account(int id, double sum) {
+    public BankAccount(int id, double sum) {
         this.id = id;
         this.sum = sum;
     }

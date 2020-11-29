@@ -1,6 +1,6 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
-public class PrivateAccount extends Account{
+public class PrivateAccount extends BankAccount {
 //    int id;
 //    double sum;
     private PrivateClient privateClient;
@@ -19,8 +19,6 @@ public class PrivateAccount extends Account{
 
     @Override
     public String toString() {
-        return "PrivateAccount{" +
-                "privateClient=" + privateClient +
-                '}';
+        return "privateClient: " + privateClient.getName();
     }
 }

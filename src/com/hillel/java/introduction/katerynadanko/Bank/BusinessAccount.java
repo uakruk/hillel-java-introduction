@@ -1,6 +1,6 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
-public class BusinessAccount extends Account{
+public class BusinessAccount extends BankAccount {
 //    int id;
 //    double sum;
     private BusinessClient businessClient;
@@ -20,8 +20,6 @@ public class BusinessAccount extends Account{
 
     @Override
     public String toString() {
-        return "BusinessAccount{" +
-                "businessClient=" + businessClient +
-                '}';
+        return "businessClient: " + businessClient.getName();
     }
 }
