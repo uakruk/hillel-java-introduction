@@ -1,16 +1,26 @@
 package pavelkim.lesson8.onlyAnimals;
 
-public class Animal {
-    protected double weight;
-    protected double size;
+public abstract class Animal implements Breed{
+    private double weight;
+    private double size;
 
-    protected Animal(double weight, double size) {
+    public double getWeight() {
+        return weight;
+    }
+    public double getSize() {
+        return size;
+    }
+
+    public void setWeight(double weight) {
         this.weight = weight;
+    }
+    public void setSize(double size) {
         this.size = size;
     }
 
-    public Animal() {
-
+    public Animal(double weight, double size) {
+        this.weight = weight;
+        this.size = size;
     }
 
     public void eat() {
@@ -21,7 +31,5 @@ public class Animal {
         System.out.println("I'm kak");
     }
 
-    public void sound() {
-        System.out.println("Sound of animal");
-    }
+    public abstract void sound();
 }

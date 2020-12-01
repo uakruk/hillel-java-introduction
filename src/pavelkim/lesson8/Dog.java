@@ -6,14 +6,32 @@ import java.util.Objects;
 
 public class Dog extends Animal {
 
-    String name;
+    private String name;
 
-    protected Dog(double weight, double size) {
+    protected Dog(double weight, double size, String name) {
         super(weight, size);
+        this.name = name;
     }
 
-    void eatShoes() {
-        System.out.println("omomomom");
+
+    @Override
+    public String color() {
+        return "White";
+    }
+
+    @Override
+    public int averageLifeTime() {
+        return 17;
+    }
+
+    @Override
+    public boolean edible() {
+        return false;
+    }
+
+    @Override
+    public void sound() {
+        System.out.println("GAF!!!!!!!!");
     }
 
     @Override
