@@ -7,7 +7,7 @@ public interface PutableMoney {
             try {
                 throw new ValidationCardException ();
             } catch (ValidationCardException e) {
-                System.out.println(("Card is no available!"));
+                System.out.println(("You can`t put money on this card! Card is no available!"));
             }
         }
 

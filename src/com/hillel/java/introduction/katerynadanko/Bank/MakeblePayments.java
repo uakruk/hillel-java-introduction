@@ -1,7 +1,8 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
 public interface MakeblePayments {
-    default double makePayments (double sum, PrivateAccount accountFrom, PrivateAccount accountTo)
+    default double makePayments (double sum, PrivateAccount accountFrom,
+                                 PrivateAccount accountTo, PaymentCard paymentCard)
             throws AvailableClientMoneyException, ValidationCardException {
         int persent = (int) (sum/100) * 2;
         double sumAccountFrom = accountFrom.getSum() - sum - persent;

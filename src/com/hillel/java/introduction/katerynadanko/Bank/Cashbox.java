@@ -2,13 +2,13 @@ package com.hillel.java.introduction.katerynadanko.Bank;
 
 import java.util.Random;
 
-public class Cashbox implements PutableMoney, MakeblePayments{
+public class Cashbox extends Bank implements GivebleMoney, PutableMoney, MakeblePayments {
 
      ConnectionRandom connectionRandom = new ConnectionRandom();
      private double availableMoney;
      private int distanceFromClient;
 
-
+     @Override
      public double makePayments(double sum, PrivateAccount accountFrom,
                                 PrivateAccount accountTo, PaymentCard paymentCardFrom)
              throws AvailableClientMoneyException, ConnectionException, ValidationCardException {
@@ -34,7 +34,7 @@ public class Cashbox implements PutableMoney, MakeblePayments{
           return sumAccountFrom;
      }
 
-
+         @Override
      public double withdrawMoney(double sum, PrivateAccount account, PaymentCard paymentCard)
              throws AvailableBankMoneyException, ConnectionException, ValidationCardException {
 
@@ -70,9 +70,9 @@ public class Cashbox implements PutableMoney, MakeblePayments{
           this.distanceFromClient = distanceFromClient;
      }
 
-     public Cashbox() {
+     public Cashbox(double availableMoney) {
           this.availableMoney = availableMoney;
-          this.distanceFromClient = getDistanceFromClient();
+
      }
 
 }

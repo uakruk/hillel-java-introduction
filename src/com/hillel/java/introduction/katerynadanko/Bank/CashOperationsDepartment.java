@@ -1,13 +1,8 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
-public class CashOperationsDepartment extends Bank {
-             private Cashbox cashboxInCashOperationsDepartment;
+public class CashOperationsDepartment extends Cashbox {
 
-    public Cashbox getCashboxInCashOperationsDepartment() {
-        return cashboxInCashOperationsDepartment;
-    }
-
-    public CashOperationsDepartment() {
-        this.cashboxInCashOperationsDepartment = cashboxInCashOperationsDepartment;
+    public CashOperationsDepartment(double availableMoney) {
+        super(availableMoney);
     }
 }

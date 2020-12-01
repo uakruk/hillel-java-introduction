@@ -7,7 +7,7 @@ public class Terminal implements PutableMoney{
     ConnectionRandom connectionRandom = new ConnectionRandom();
 
     public double makePayments(double sum, PrivateAccount accountFrom, PrivateAccount accountTo, PaymentCard paymentCard)
-            throws AvailableClientMoneyException, ConnectionException {
+            throws AvailableClientMoneyException, ConnectionException, ValidationCardException {
         double persent = (sum/100) * 2;
         double sumWhithPersent = sum + persent;
         double availableClientMoney = accountFrom.getSum()-sumWhithPersent;
@@ -15,11 +15,7 @@ public class Terminal implements PutableMoney{
         connectionRandom.randConnect();
 
         if (paymentCard.isActive() == false){
-            try {
-                throw new ValidationCardException ();
-            } catch (ValidationCardException e) {
-                System.out.println("Card is no available!");
-            }
+                throw new ValidationCardException();
         }
 
         if (sumWhithPersent > accountFrom.getSum()){
