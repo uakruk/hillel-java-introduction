@@ -18,6 +18,18 @@ public class PaymentCard {
         return false;
     }
 
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+    public String getCartNumber() {
+        return cartNumber;
+    }
+
+
     @Override
     public String toString() {
         return "PaymentCard{" +
@@ -26,7 +38,5 @@ public class PaymentCard {
                 '}';
     }
 
-    public String getCartNumber() {
-        return cartNumber;
-    }
+
 }

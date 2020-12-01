@@ -8,6 +8,7 @@ public abstract class BankAccount {
     private int id;
     private double sum;
     private PaymentCardList paymentCardList;
+    private PaymentCard paymentCard;
     public Client client;
 
     public BankAccount(int id, double sum) {
@@ -29,6 +30,18 @@ public abstract class BankAccount {
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setPaymentCardList(PaymentCardList paymentCardList) {
+        this.paymentCardList = paymentCardList;
+    }
+
+    public PaymentCard getPaymentCard() {
+        return paymentCard;
     }
 
     @Override

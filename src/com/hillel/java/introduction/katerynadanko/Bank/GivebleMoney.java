@@ -1,7 +1,7 @@
 package com.hillel.java.introduction.katerynadanko.Bank;
 
 public interface GivebleMoney {
-     default double withdrawMoney (double sum, PrivateAccount account)
+     default double withdrawMoney (double sum, PrivateAccount account, PaymentCard paymentCard)
              throws AvailableBankMoneyException, ValidationCardException {
 
           double sumRest = account.getSum() - sum;

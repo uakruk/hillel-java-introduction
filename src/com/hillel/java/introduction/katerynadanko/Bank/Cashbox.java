@@ -2,21 +2,26 @@ package com.hillel.java.introduction.katerynadanko.Bank;
 
 import java.util.Random;
 
-public class Cashbox implements GivebleMoney, PutableMoney, MakeblePayments{
+public class Cashbox implements PutableMoney, MakeblePayments{
 
      ConnectionRandom connectionRandom = new ConnectionRandom();
      private double availableMoney;
      private int distanceFromClient;
 
-     @Override
-     public double makePayments(double sum, PrivateAccount accountFrom, PrivateAccount accountTo)
-             throws AvailableClientMoneyException, ConnectionException {
+
+     public double makePayments(double sum, PrivateAccount accountFrom,
+                                PrivateAccount accountTo, PaymentCard paymentCardFrom)
+             throws AvailableClientMoneyException, ConnectionException, ValidationCardException {
 
           connectionRandom.randConnect();
 
           double persent = (sum/100) * 2;
           double sumWhithPersent = sum + persent;
           double availableClientMoney = accountFrom.getSum()-sumWhithPersent;
+
+          if (paymentCardFrom.isActive() == false){
+               throw new ValidationCardException ("Card is no available!");
+          }
 
           if (sumWhithPersent > accountFrom.getSum()){
                throw new AvailableClientMoneyException ("You can`t withdraw " +
@@ -29,10 +34,15 @@ public class Cashbox implements GivebleMoney, PutableMoney, MakeblePayments{
           return sumAccountFrom;
      }
 
-     @Override
-     public double withdrawMoney(double sum, PrivateAccount account) throws AvailableBankMoneyException, ConnectionException {
+
+     public double withdrawMoney(double sum, PrivateAccount account, PaymentCard paymentCard)
+             throws AvailableBankMoneyException, ConnectionException, ValidationCardException {
 
           connectionRandom.randConnect();
+
+          if (paymentCard.isActive() == false){
+               throw new ValidationCardException ("Card is no available!");
+          }
 
           if (sum > availableMoney)
                throw new AvailableBankMoneyException("You can`t withdraw " +

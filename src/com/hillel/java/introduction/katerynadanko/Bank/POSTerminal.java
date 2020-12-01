@@ -5,13 +5,21 @@ import java.util.Random;
 public class POSTerminal {
     ConnectionRandom connectionRandom = new ConnectionRandom();
 
-     double makePayments (double sum, PrivateAccount accountFrom, BusinessAccount accountTo)
+     double makePayments (double sum, PrivateAccount accountFrom, BusinessAccount accountTo, PaymentCard paymentCardFrom)
              throws AvailableClientMoneyException, ConnectionException {
          double persent = (sum/100) * 2;
          double sumWhithPersent = sum + persent;
          double availableClientMoney = accountFrom.getSum()-sumWhithPersent;
 
          connectionRandom.randConnect();
+
+         if (paymentCardFrom.isActive() == false){
+             try {
+                 throw new ValidationCardException ();
+             } catch (ValidationCardException e) {
+                 System.out.println("Card is no available!");
+             }
+         }
 
          if (sumWhithPersent > accountFrom.getSum()){
              throw new AvailableClientMoneyException ("You can`t withdraw " +

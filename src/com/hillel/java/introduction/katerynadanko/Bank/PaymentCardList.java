@@ -3,8 +3,6 @@ package com.hillel.java.introduction.katerynadanko.Bank;
 public class PaymentCardList {
 private PaymentCardEntry paymentCardEntry;
 
-
-
     void addCard(PaymentCard paymentCard) {
 
         if (paymentCardEntry == null){
@@ -41,9 +39,7 @@ private PaymentCardEntry paymentCardEntry;
         return paymentCard;
     }
     }
-    void printAvailableCards()
-            throws ValidationCardException
-    {
+    void printAvailableCards() throws ValidationCardException {
         if (paymentCardEntry == null) {
             System.out.println("No available cards");
         }

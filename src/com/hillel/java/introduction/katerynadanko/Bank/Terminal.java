@@ -2,18 +2,25 @@ package com.hillel.java.introduction.katerynadanko.Bank;
 
 import java.util.Random;
 
-public class Terminal implements PutableMoney, MakeblePayments{
+public class Terminal implements PutableMoney{
 
     ConnectionRandom connectionRandom = new ConnectionRandom();
 
-    @Override
-    public double makePayments(double sum, PrivateAccount accountFrom, PrivateAccount accountTo)
+    public double makePayments(double sum, PrivateAccount accountFrom, PrivateAccount accountTo, PaymentCard paymentCard)
             throws AvailableClientMoneyException, ConnectionException {
         double persent = (sum/100) * 2;
         double sumWhithPersent = sum + persent;
         double availableClientMoney = accountFrom.getSum()-sumWhithPersent;
 
         connectionRandom.randConnect();
+
+        if (paymentCard.isActive() == false){
+            try {
+                throw new ValidationCardException ();
+            } catch (ValidationCardException e) {
+                System.out.println("Card is no available!");
+            }
+        }
 
         if (sumWhithPersent > accountFrom.getSum()){
             throw new AvailableClientMoneyException ("You can`t withdraw " +
