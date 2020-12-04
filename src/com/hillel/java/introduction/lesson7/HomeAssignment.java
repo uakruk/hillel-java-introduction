@@ -31,6 +31,13 @@ public class HomeAssignment {
         int[] arraySecondCopy = Arrays.copyOf(array, array.length);
 
         // here your code, output the average, min, max values
+        System.out.println("The average within the array = " + getAverageValue(array));
+        int min = getMinimumValue(array);
+        System.out.println("Minimum number of this array = " + min);
+        System.out.println("Maximum number of this array = " + getMaximumValue(array));
+
+
+
 
 
         // ... your code...
@@ -40,7 +47,7 @@ public class HomeAssignment {
         performSortingAndMeasureTime(arrayCopy, HomeAssignment::mergeSort, "Merge");
         performSortingAndMeasureTime(arraySecondCopy, HomeAssignment::quickSort, "Quicksort");
 
-        int[][] matrix = new int[8][6]; // you can change the size of the matrix for whatever you want
+        int[][] matrix = new int[3][3]; // you can change the size of the matrix for whatever you want
         for (int i = 0; i < matrix.length; i++) {
             for(int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = random.nextInt(20);
@@ -86,18 +93,34 @@ public class HomeAssignment {
     }
 
     public static double getAverageValue(int[] array) {
-        // here your code;
-        return 0;
+
+        int sum = 0;
+        for ( int i = 0; i < array.length; i++ ){
+            sum = sum + array[i];
+
+        }
+        float av = sum / array.length;
+        return av;
     }
 
     public static int getMaximumValue(int[] array) {
+        int x = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (x < array[i]) x = array[i];
+
+        }
         // here your code;
-        return 0;
+        return x;
     }
 
     public static int getMinimumValue(int[] array) {
+        int x = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (x > array[i]) x = array[i];
+
+        }
         // here your code;
-        return 0;
+        return x;
     }
 
     public static void mergeSort(int[] inputArray) {
@@ -128,11 +151,26 @@ public class HomeAssignment {
     }
 
     public static int[][] transposeMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i+1; j < matrix[0].length; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
         // here your code, transpose the input matrix.
         return null;
     }
 
     public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + "   ");
+            }
+            System.out.println();
+        }
+
         // show the matrix as the output, keep the rows and columns.
         // for example, if you have matrix 3 x 3 you should output something like:
         // | 1    2    12 |
