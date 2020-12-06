@@ -1,4 +1,4 @@
-package com.hillel.java.introduction;
+package com.hillel.java.introduction.katerynadanko;
 
 import java.util.Scanner;
 
