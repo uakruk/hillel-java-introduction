@@ -2,6 +2,8 @@ package com.hillel.java.introduction.lesson11.hw;
 
 public class Bank {
 
+    private String bankName;
+
     private BankAccount[] bankAccounts;
 
     private PaymentCardList cardList;
@@ -20,5 +22,13 @@ public class Bank {
 
     public void setCardList(PaymentCardList cardList) {
         this.cardList = cardList;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 }

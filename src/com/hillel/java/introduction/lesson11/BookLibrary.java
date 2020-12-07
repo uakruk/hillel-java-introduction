@@ -1,6 +1,8 @@
 package com.hillel.java.introduction.lesson11;
 
-public class BookLibrary implements Library {
+import java.util.Iterator;
+
+public class BookLibrary implements Library, Iterable<Book> {
 
     private BookEntry list;
 
@@ -63,6 +65,21 @@ public class BookLibrary implements Library {
             this.book = book;
         }
 
+    }
+
+    @Override
+    public Iterator<Book> iterator() {
+        return new Iterator<Book>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Book next() {
+                return null;
+            }
+        };
     }
 
     public static void main(String[] args) {

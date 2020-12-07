@@ -1,4 +1,6 @@
-package com.hillel.java.introduction.lesson12;
+package com.hillel.java.introduction.lesson12.model;
+
+import com.hillel.java.introduction.lesson12.MyException;
 
 public interface Bank {
 

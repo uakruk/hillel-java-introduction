@@ -1,7 +1,11 @@
 package com.hillel.java.introduction.lesson11.hw;
 
-public class Client {
+import java.util.List;
 
-    private PaymentCard[] paymentCards;
+public abstract class Client {
+
+    private List<PaymentCard> paymentCards;
+
+    private List<BankAccount> bankAccounts;
 
 }
