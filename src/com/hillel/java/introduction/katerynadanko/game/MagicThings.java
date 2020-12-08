@@ -1,0 +1,14 @@
+package com.hillel.java.introduction.katerynadanko.game;
+
+public enum MagicThings {
+    INCREASE_HEALTH,
+    INCREASE_ARMOR,
+    ALLOW_MAKE_MISTAKE,
+    INCREASE_BLOW,
+    INCREASE_CHANCE_OF_CRITICAL_HIT,
+    INFLICT_MAGIC_DAMAGE,
+    FENCE_USE_OBJECTS_2_MOVES,
+    FENCE_USE_MAGIC_NEXT_OFFENSIVE,
+    FENCE_PHYSICALLY_ATTACK
+
+}
