@@ -84,6 +84,9 @@ public class BookLibrary implements Library, Iterable<Book> {
 
     public static void main(String[] args) {
         BookLibrary bookLibrary = new BookLibrary();
-        BookLibrary.BookEntry bookEntry = bookLibrary.new BookEntry(null);
+        Book book = new Book("Book");
+        bookLibrary.add(book);
+        BookLibrary.BookEntry bookEntry = bookLibrary.new BookEntry(book);
+        bookLibrary.printAuthors();
     }
 }
