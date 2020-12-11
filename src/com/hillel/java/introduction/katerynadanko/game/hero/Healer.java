@@ -1,5 +1,6 @@
 package com.hillel.java.introduction.katerynadanko.game.hero;
 
+import com.hillel.java.introduction.katerynadanko.game.CharacteristicsHeros;
 import com.hillel.java.introduction.katerynadanko.game.hero.Unit;
 
 public class Healer extends Unit {
@@ -10,17 +11,13 @@ public class Healer extends Unit {
     }
 
     @Override
-    public void physicalAttack(Unit unit) {
+    public void hit(Unit unit) {
 
     }
-
-    @Override
-    public void magicalAttack(Unit unit) {
-
+    public void heal(Unit player){
+        double increaseHealth = 100;
+//        player.healthLevel=+healthLevel*increaseHealth*(healthLevel/ CharacteristicsHeros.HEALTH_LEVEL_INCREASE);
     }
 
-    @Override
-    public void freezeAttack(Unit unit) {
 
-    }
 }

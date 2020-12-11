@@ -9,17 +9,9 @@ public class Magician extends Unit {
     }
 
     @Override
-    public void physicalAttack(Unit unit) {
+    public void hit (Unit unit) {
 
     }
 
-    @Override
-    public void magicalAttack(Unit unit) {
 
-    }
-
-    @Override
-    public void freezeAttack(Unit unit) {
-
-    }
 }

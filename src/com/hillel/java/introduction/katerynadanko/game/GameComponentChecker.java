@@ -6,6 +6,7 @@ public class GameComponentChecker {
     Class [] declaredClasses = obj.getClass().getDeclaredClasses();
     for(Class clazz : declaredClasses){
         GameComponent annotation = (GameComponent) clazz.getAnnotation(GameComponent.class);
+        
         if(annotation != null && clazz.isAssignableFrom(String.class)){
 
             Object object = clazz.getDeclaredClasses();
