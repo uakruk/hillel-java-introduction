@@ -1,5 +1,7 @@
 package com.hillel.java.introduction.lesson14;
 
+import com.hillel.java.introduction.hero.HeroRandomizer;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -21,13 +23,20 @@ public class Fight {
         // 1 type = physical attack
         // 2 type = magical attack
         // 3 type = freeze attack
+//
+//        List<com.hillel.java.introduction.hero.Unit> units = HeroRandomizer.randomizeUnits(teamPlayer, teamEnemy);
+//
+//
+//        for (Unit unit : units) {
+//            unit.hit();
+//        }
 
-        for (Unit unit : teamPlayer) {
-            Stream<Unit> stream = teamPlayer.stream();
-
-            //teamPlayer
-
-        }
+//        for (Unit unit : teamPlayer) {
+//            HeroR
+//
+//            //teamPlayer
+//
+//        }
 
 //        if (player.isHealer()) {
 //            Optional<Unit> optionalUnit = teamPlayer.stream().map(unit -> unit.armor).min(unit -> unit.getHealthLevel());

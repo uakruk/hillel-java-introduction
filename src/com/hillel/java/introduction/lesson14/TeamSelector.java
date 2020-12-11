@@ -15,6 +15,8 @@ public class TeamSelector implements InteractiveElement {
 
     private HeroChoser heroChoser = new HeroChoser();
 
+    private int numberOfMagicans;
+
     public TeamSelector(int teamNumber, List<String> heroes) {
         this.teamNumber = teamNumber;
         this.heroes = heroes;
@@ -34,7 +36,11 @@ public class TeamSelector implements InteractiveElement {
                     break;
                 case 2:
                     System.out.println("Add a hero");
-                    heroChoser.use();
+                    try {
+                        heroChoser.use();
+                    } catch (Exception e) {
+
+                    }
                     break;
                 case 3:
                     System.out.println("Already chosen heroes:");
@@ -67,6 +73,7 @@ public class TeamSelector implements InteractiveElement {
     }
 
     private class HeroChoser implements InteractiveElement {
+
         @Override
         public void decisionLoop() {
             String read = null;
@@ -77,6 +84,7 @@ public class TeamSelector implements InteractiveElement {
                 switch (action) {
                     case 1:
                         System.out.println("Adding magic hero");
+                   //     throw HeroLimitReachedException("Too much magicans");
                         heroes.add("Magic");
                         break;
                     case 2:

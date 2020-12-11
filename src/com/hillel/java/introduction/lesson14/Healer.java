@@ -7,18 +7,4 @@ public class Healer extends Unit {
 
     }
 
-    @Override
-    public void physicalAttack(Unit unit) {
-
-    }
-
-    @Override
-    public void magicalAttack(Unit unit) {
-
-    }
-
-    @Override
-    public void freezeAttack(Unit unit) {
-
-    }
 }

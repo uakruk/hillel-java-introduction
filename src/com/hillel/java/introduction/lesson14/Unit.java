@@ -4,21 +4,23 @@ import java.util.List;
 
 public abstract class Unit {
 
+    protected static final double HEALTH_MULTIPLIER = 200;
+
     double healthLevel;
 
     double armor;
 
     double attackDamage;
 
+    double currentLevel;
+
     private List<Invertory> invertoryList;
 
     public abstract void fight(Unit unit);
 
-    public abstract void physicalAttack(Unit unit);
+    private void checkLevel() {
 
-    public abstract void magicalAttack(Unit unit);
-
-    public abstract void freezeAttack(Unit unit);
+    }
 
     public void addInvertory(Invertory invertory) {
         invertoryList.add(invertory);
@@ -32,5 +34,18 @@ public abstract class Unit {
             }
         }
         return healthLevel + healthIncrease;
+    }
+
+    protected void increaseLevel(double howMuch) {
+        double levelBefore = currentLevel;
+
+        currentLevel += howMuch;
+
+        double changed = currentLevel - levelBefore;
+
+        if (changed >= 1) {
+            healthLevel += (int) changed * HEALTH_MULTIPLIER;
+        }
+
     }
 }
