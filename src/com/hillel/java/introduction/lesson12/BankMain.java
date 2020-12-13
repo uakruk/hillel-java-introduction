@@ -1,5 +1,8 @@
 package com.hillel.java.introduction.lesson12;
 
+import com.hillel.java.introduction.lesson12.model.Bank;
+import com.hillel.java.introduction.lesson12.model.PrivatBank;
+
 public class BankMain {
 
     public static void main(String[] args) {

@@ -2,6 +2,9 @@ package com.hillel.java.introduction;
 
 import java.util.Scanner;
 
+import static com.hillel.java.introduction.lesson12.model.PrivatBank.numberOfClients;
+import static com.hillel.java.introduction.lesson12.model.PrivatBank.sayBank;
+
 public class Main {
 
     final static double INTEREST_RATE = 11.29;
@@ -79,6 +82,8 @@ public class Main {
 
         System.out.println(one /* here your operation with the one*/);
 
+        sayBank();
+        numberOfClients = 1;
     }
 
     private static boolean getFirst() {
